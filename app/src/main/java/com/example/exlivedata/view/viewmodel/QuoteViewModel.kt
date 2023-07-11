@@ -1,5 +1,7 @@
 package com.example.exlivedata.view.viewmodel
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +10,7 @@ import com.example.exlivedata.data.QuoteRepository
 import com.example.exlivedata.data.models.Result
 import kotlinx.coroutines.launch
 
-class QuoteViewModel:ViewModel() {
+class QuoteViewModel : ViewModel() {
     private val quoteRepository = QuoteRepository()
     private val _quoteList = MutableLiveData<List<Result>>()
     val quoteList: LiveData<List<Result>>
@@ -23,5 +25,11 @@ class QuoteViewModel:ViewModel() {
                 // Xử lý lỗi
             }
         }
+    }
+
+    fun removeQuote(quote: Result) {
+        val list = _quoteList.value!!.toMutableList()
+        list.remove(quote)
+        _quoteList.value = list
     }
 }

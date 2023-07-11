@@ -1,41 +1,60 @@
 package com.example.exlivedata.view
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.exlivedata.R
-import com.example.exlivedata.data.network.QuotesApi
-import com.example.exlivedata.data.network.RetrofitHelper
+import com.example.exlivedata.data.models.Result
+import com.example.exlivedata.databinding.ActivityMainBinding
 import com.example.exlivedata.view.adapter.QuoteAdapter
 import com.example.exlivedata.view.viewmodel.QuoteViewModel
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var quoteListView: RecyclerView
     private lateinit var quoteAdapter: QuoteAdapter
-    private lateinit var quoteViewModel : QuoteViewModel
-    @SuppressLint("NotifyDataSetChanged")
-    @OptIn(DelicateCoroutinesApi::class)
+    private lateinit var quoteViewModel: QuoteViewModel
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        quoteListView  = findViewById(R.id.list_quote)
-        quoteListView.layoutManager = LinearLayoutManager(this)
-        quoteAdapter = QuoteAdapter(emptyList())
-        quoteListView.adapter = quoteAdapter
 
-        quoteViewModel = ViewModelProvider(this).get(QuoteViewModel::class.java)
-        quoteViewModel.quoteList.observe(this) { quotes ->
-            quoteAdapter.dataList = quotes
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        quoteViewModel = ViewModelProvider(this)[QuoteViewModel::class.java]
+        quoteAdapter = QuoteAdapter(emptyList())
+        quoteAdapter.setClickListener(object : QuoteAdapter.ClickListener {
+            override fun onClick(quote: Result) {
+                removeItem(quote)
+            }
+        })
+        binding.recyclerView.adapter = quoteAdapter
+        binding.model = quoteViewModel
+        binding.lifecycleOwner = this
+
+        loadData()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun loadData() {
+        quoteViewModel.quoteList.observe(this) { quoteList ->
+            quoteAdapter.quoteList = quoteList
             quoteAdapter.notifyDataSetChanged()
         }
         quoteViewModel.fetchQuotes()
+
+//        quoteAdapter.setClickListener(object :QuoteAdapter.ClickListener{
+//            override fun onClick(quote: Result) {
+//
+//            }
+//
+//        })
     }
 
+
+
+    private fun removeItem(quote: Result) {
+        quoteViewModel.removeQuote(quote)
+    }
 }

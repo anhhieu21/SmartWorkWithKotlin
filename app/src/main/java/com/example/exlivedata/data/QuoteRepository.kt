@@ -5,7 +5,7 @@ import com.example.exlivedata.data.network.QuotesApi
 import com.example.exlivedata.data.network.RetrofitHelper
 
 class QuoteRepository {
-    val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
+    private val quotesApi: QuotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
     suspend fun getQuotes(): List<Result> {
         val result = quotesApi.getQuotes()
         val quotes = result.body()?.results
