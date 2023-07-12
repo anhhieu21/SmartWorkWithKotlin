@@ -1,9 +1,7 @@
-package com.example.exlivedata.view.adapter
+package com.example.exlivedata.ui.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
@@ -45,19 +43,20 @@ class QuoteAdapter(var quoteList: List<Result>) :
                 adapter.quoteList = quoteList
             }
         }
+
         @JvmStatic
         @BindingAdapter("app:imageUrl")
         fun loadImageUrl(imageView: ImageView, imageUrl: String?) {
-          val  x = "https://plus.unsplash.com/premium_photo-1669631945645-98bf6931f5d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-            x.let {
-                val imageLoader = ImageLoader.Builder(imageView.context)
-                    .build()
-                imageView.load(it, imageLoader)
-            }
+            val x =
+                "https://plus.unsplash.com/premium_photo-1669631945645-98bf6931f5d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+            val imageLoader = ImageLoader.Builder(imageView.context)
+                .build()
+            imageView.load(x, imageLoader)
         }
     }
 
     private var clickListener: ClickListener? = null
+
     interface ClickListener {
         fun onClick(quote: Result)
 

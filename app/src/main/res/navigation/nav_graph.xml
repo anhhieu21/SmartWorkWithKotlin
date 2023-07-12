@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listQuoteFragment">
+
+    <fragment
+        android:id="@+id/listQuoteFragment"
+        android:name="com.example.exlivedata.ui.view.fragment.ListQuoteFragment"
+        android:label="ListQuoteFragment" >
+        <action
+            android:id="@+id/action_listQuoteFragment_to_detailQuoteFragment"
+            app:destination="@id/detailQuoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailQuoteFragment"
+        android:name="com.example.exlivedata.ui.view.fragment.DetailQuoteFragment"
+        android:label="fragment_detail_quote"
+        tools:layout="@layout/fragment_detail_quote" />
+</navigation>

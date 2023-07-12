@@ -1,7 +1,6 @@
-package com.example.exlivedata.view.viewmodel
+package com.example.exlivedata.ui.viewmodel
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,9 +12,10 @@ import kotlinx.coroutines.launch
 class QuoteViewModel : ViewModel() {
     private val quoteRepository = QuoteRepository()
     private val _quoteList = MutableLiveData<List<Result>>()
-    val quoteList: LiveData<List<Result>>
-        get() = _quoteList
+    val quoteList: LiveData<List<Result>> get() = _quoteList
 
+    private val _detail = MutableLiveData<Result>()
+    val detail: LiveData<Result> get() = _detail
     fun fetchQuotes() {
         viewModelScope.launch {
             try {
@@ -31,5 +31,9 @@ class QuoteViewModel : ViewModel() {
         val list = _quoteList.value!!.toMutableList()
         list.remove(quote)
         _quoteList.value = list
+    }
+
+    fun detailQuote(quote: Result) {
+        _detail.value = quote
     }
 }
