@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">ExLiveData</string>
+    <string name="app_name">GameStores</string>
     <string name="title_here">Title here</string>
     <string name="todo">TODO</string>
     <string name="title_activity_detail">DetailActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail">Detail</string>
 </resources>

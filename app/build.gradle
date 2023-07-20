@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.exlivedata'
+    namespace 'com.example.gamestores'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.exlivedata"
+        applicationId "com.example.gamestores"
         minSdk 28
         targetSdk 33
         versionCode 1

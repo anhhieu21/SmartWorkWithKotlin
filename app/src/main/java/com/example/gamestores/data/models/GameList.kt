@@ -1,10 +1,10 @@
-package com.example.exlivedata.data.models
+package com.example.gamestores.data.models
 
-data class QuoteList(
+data class GameList(
     val count : Int,
     val lastItemIndex: Int,
     val page: Int,
-    val results: List<Result>,
+    val games: List<Game>,
     val totalCount: Int,
     val totalPages: Int
 )

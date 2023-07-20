@@ -6,20 +6,34 @@
     <data>
         <variable
             name="model"
-            type="com.example.exlivedata.ui.viewmodel.QuoteViewModel" />
+            type="com.example.gamestores.ui.viewmodel.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.view.fragment.ListQuoteFragment">
+        tools:ignore="MissingConstraints"
+        tools:context="com.example.gamestores.ui.view.fragment.ListGameFragment">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+
+               />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:quoteList="@{model.quoteList}"
+            app:quoteList="@{model.gameList}"
+            app:layout_constraintTop_toBottomOf="@+id/tb_listGame"
             tools:listitem="@layout/item_quote" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

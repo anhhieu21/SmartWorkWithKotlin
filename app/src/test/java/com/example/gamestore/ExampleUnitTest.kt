@@ -1,4 +1,4 @@
-package com.example.exlivedata
+package com.example.gamestore
 
 import org.junit.Test
 

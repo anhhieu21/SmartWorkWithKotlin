@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quote"
+            type="com.example.gamestores.data.models.Game" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.gamestores.ui.view.fragment.DetailGameFragment"
+        tools:ignore="MissingConstraints">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:imageUrl="@{quote.urlImage}"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/txt_title"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/title_here"-->
+<!--            android:text="@{quote.author}"-->
+<!--            android:textSize="18sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imageView" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_date"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/title_here"-->
+<!--            android:text="@{quote.dateAdded}"-->
+<!--            android:textSize="18sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/txt_title" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_content"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/title_here"-->
+<!--            android:text="@{quote.content}"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txt_title" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

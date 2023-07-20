@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listQuoteFragment"
-        android:name="com.example.exlivedata.ui.view.fragment.ListQuoteFragment"
+        android:name="com.example.gamestores.ui.view.fragment.ListGameFragment"
         android:label="ListQuoteFragment" >
         <action
             android:id="@+id/action_listQuoteFragment_to_detailQuoteFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailQuoteFragment"
-        android:name="com.example.exlivedata.ui.view.fragment.DetailQuoteFragment"
+        android:name="com.example.gamestores.ui.view.fragment.DetailGameFragment"
         android:label="fragment_detail_quote"
-        tools:layout="@layout/fragment_detail_quote" />
+        tools:layout="@layout/fragment_detail_game" />
 </navigation>
