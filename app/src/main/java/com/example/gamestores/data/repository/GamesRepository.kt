@@ -2,6 +2,7 @@ package com.example.gamestores.data.repository
 
 import android.util.Log
 import com.example.gamestores.data.models.Game
+import com.example.gamestores.data.models.GameDetail
 import com.example.gamestores.data.network.StoresApi
 import com.example.gamestores.data.network.RetrofitHelper
 
@@ -11,5 +12,10 @@ class GamesRepository {
         val result = storesApi.getListGame()
         val games = result.body()
         return games!!
+    }
+    suspend fun getGameDetail(gameId:Int): GameDetail {
+        val result = storesApi.getGameDetail(gameId)
+        val game = result.body()
+        return game!!
     }
 }

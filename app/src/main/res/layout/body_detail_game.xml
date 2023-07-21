@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.gamestores.data.models.GameDetail" />
+
+        <variable
+            name="buttonModel"
+            type="com.example.gamestores.ui.viewmodel.GameViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/btn_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:elevation="0dp"
+            android:text="@string/download" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:elevation="0dp"
+            android:text="@string/available" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{model.short_description}" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/provider"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{model.publisher}"
+                android:textSize="12sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/btn_want"
+                layout="@layout/button_option_detail_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:iconSrc="@{buttonModel.btnWantViewModel.iconSrc}"
+                app:label="@{buttonModel.btnWantViewModel.label}" />
+
+            <include
+                android:id="@+id/btn_played"
+                layout="@layout/button_option_detail_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:iconSrc="@{buttonModel.btnPlayedViewModel.iconSrc}"
+                app:label="@{buttonModel.btnPlayedViewModel.label}" />
+
+            <include
+                android:id="@+id/btn_addGameList"
+                layout="@layout/button_option_detail_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:iconSrc="@{buttonModel.btnAddGameListViewModel.iconSrc}"
+                app:label="@{buttonModel.btnAddGameListViewModel.label}" />
+
+            <include
+                android:id="@+id/btn_share"
+                layout="@layout/button_option_detail_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:iconSrc="@{buttonModel.btnShareViewModel.iconSrc}"
+                app:label="@{buttonModel.btnShareViewModel.label}" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/minimum_system_requirements"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/os + @string/minimum_system_requirements}"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/processor + @string/minimum_system_requirements}"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/memory + @string/minimum_system_requirements}"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/graphics + @string/minimum_system_requirements}"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/storage + @string/minimum_system_requirements}"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>
+

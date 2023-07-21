@@ -6,4 +6,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detail">Detail</string>
+    <string name="download">Download</string>
+    <string name="available">Also available</string>
+    <string name="provider">Provider</string>
+    <string name="want">Want</string>
+    <string name="minimum_system_requirements">Minimum system requirements</string>
+    <string name="os">os: </string>
+    <string name="processor">processor: </string>
+    <string name="memory">memory: </string>
+    <string name="graphics">graphics: </string>
+    <string name="storage">storage: </string>
 </resources>

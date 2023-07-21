@@ -20,10 +20,6 @@ public class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setupNavController()
-
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.nav_host_fragment, ListQuoteFragment()).commit()
-
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
         binding.lifecycleOwner = this
     }
@@ -32,8 +28,6 @@ public class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-//        val appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, )
 
     }
 

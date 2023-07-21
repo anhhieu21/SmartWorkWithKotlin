@@ -6,51 +6,116 @@
     <data>
 
         <variable
-            name="quote"
-            type="com.example.gamestores.data.models.Game" />
-    </data>
+            name="model"
+            type="com.example.gamestores.data.models.GameDetail" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <variable
+            name="buttonModel"
+            type="com.example.gamestores.ui.viewmodel.GameViewModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.gamestores.ui.view.fragment.DetailGameFragment"
         tools:ignore="MissingConstraints">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            app:imageUrl="@{quote.urlImage}"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/txt_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent" />-->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:strokeWidth="0dp"
+            app:cardCornerRadius="16dp">
 
-<!--        <TextView-->
-<!--            android:id="@+id/txt_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/title_here"-->
-<!--            android:text="@{quote.author}"-->
-<!--            android:textSize="18sp"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/imageView" />-->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+        </com.google.android.material.card.MaterialCardView>
 
-<!--        <TextView-->
-<!--            android:id="@+id/txt_date"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/title_here"-->
-<!--            android:text="@{quote.dateAdded}"-->
-<!--            android:textSize="18sp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/txt_title" />-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
 
-<!--        <TextView-->
-<!--            android:id="@+id/txt_content"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/title_here"-->
-<!--            android:text="@{quote.content}"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/imageView"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/txt_title" />-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="0dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="center"
+                    app:imageUrl="@{model.thumbnail}" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_here"
+                    android:text="@{model.title}"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_here"
+                    android:text="@{model.platform}"
+                    android:textSize="18sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_here"
+                    android:text="@{model.status}"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_here"
+                    android:text="@{model.release_date}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <include
+            layout="@layout/body_detail_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:buttonModel="@{buttonModel}"
+            app:model="@{model}" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>
