@@ -16,4 +16,21 @@
     <string name="memory">memory: </string>
     <string name="graphics">graphics: </string>
     <string name="storage">storage: </string>
+
+    <!--    tab bar detail game screen-->
+    <string name="description">Description</string>
+    <string name="reviews">Reviews</string>
+    <string name="gameplay">Gameplay</string>
+    <string name="news">News</string>
+    <string name="guide">Guide</string>
+    <string name="discussion">Discussion</string>
+    <string name="share">share</string>
+    <string name="report">report</string>
+    <string name="home">Home</string>
+    <string name="categories">Categories</string>
+    <string name="account">Account</string>
+    <string name="search_game">search game</string>
+    <string name="top_charts">Top charts</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="listgame">Listgame</string>
 </resources>

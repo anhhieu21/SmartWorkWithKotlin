@@ -25,7 +25,8 @@ class GameAdapter(var games: List<Game>) :
     }
 
     override fun getItemCount(): Int {
-        return games.size
+        val limit = 15
+        return games.size.coerceAtMost(limit)
     }
 
     override fun onBindViewHolder(holder: QuoteViewHolder, position: Int) {
@@ -54,37 +55,39 @@ class GameAdapter(var games: List<Game>) :
             }
 
         }
-    }
 
-    private var clickListener: ClickListener? = null
-
-    interface ClickListener {
-        fun onClick(quote: Game)
 
     }
 
-    fun setClickListener(listener: ClickListener) {
-        this.clickListener = listener
-    }
+        private var clickListener: ClickListener? = null
 
-    inner class QuoteViewHolder(private val binding: ItemQuoteBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        interface ClickListener {
+            fun onClick(quote: Game)
 
-        init {
-            binding.item.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    val quote = games[position]
-                    clickListener?.onClick(quote)
+        }
+
+        fun setClickListener(listener: ClickListener) {
+            this.clickListener = listener
+        }
+
+        inner class QuoteViewHolder(private val binding: ItemQuoteBinding) :
+            RecyclerView.ViewHolder(binding.root) {
+
+            init {
+                binding.item.setOnClickListener {
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        val quote = games[position]
+                        clickListener?.onClick(quote)
+                    }
                 }
             }
-        }
 
-        fun bind(game: Game) {
-            binding.quote = game
-            binding.executePendingBindings()
+            fun bind(game: Game) {
+                binding.quote = game
+                binding.executePendingBindings()
 
+            }
         }
     }
-}
 
